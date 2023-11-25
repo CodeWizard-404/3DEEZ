@@ -138,15 +138,6 @@ To get started with the 3DEEZ Online Store web application, follow the steps bel
    - Explore the codebase and customize the application to meet your specific requirements.
    - Implement additional features and functionalities as needed.
 
-## Contributors
-
-- [Laghouanem Sofien]
-
-
-## License
-
-This project is licensed under the [ISET](LICENSE).
-
 **JSON Server Setup:**
 
 To simulate a backend, the application uses JSON Server. Here's how to start it:
@@ -165,6 +156,17 @@ To simulate a backend, the application uses JSON Server. Here's how to start it:
    ```
 
    Access the JSON Server API at `http://localhost:3000/`.
+
+## Contributors
+
+- [Laghouanem Sofien]
+
+
+## License
+
+This project is licensed under the [ISET](LICENSE).
+
+
 
 Happy coding! 🚀
 ```
