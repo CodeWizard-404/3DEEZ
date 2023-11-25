@@ -1,3 +1,6 @@
+Here's the README file tailored to your requirements:
+
+```markdown
 # 3DEEZ Online Store Web Application
 
 Welcome to the 3DEEZ Online Store web application repository! This project is designed to showcase a web application for an online store specializing in 3D printed items. The application consists of two parts: Back Office for administrators and Front Office for customers and visitors.
@@ -147,4 +150,26 @@ To get started with the 3DEEZ Online Store web application, follow the steps bel
 
 This project is licensed under the [ISET](LICENSE).
 
+**JSON Server Setup:**
+
+To simulate a backend, the application uses JSON Server. Here's how to start it:
+
+1. **Install JSON Server:**
+   ```bash
+   npm install -g json-server
+   ```
+
+2. **Create a JSON Data File:**
+   Create a `db.json` file in the project root with sample data.
+
+3. **Start JSON Server:**
+   ```bash
+   json-server --watch db.json
+   ```
+
+   Access the JSON Server API at `http://localhost:3000/`.
+
 Happy coding! 🚀
+```
+
+Feel free to modify the contributors, license information, or any other content as needed. This README provides detailed information about the project, its features, requirements, setup instructions, and additional details about the JSON Server setup.
