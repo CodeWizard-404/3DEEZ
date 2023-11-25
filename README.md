@@ -169,6 +169,3 @@ This project is licensed under the [ISET](LICENSE).
 
 
 Happy coding! 🚀
-```
-
-Feel free to modify the contributors, license information, or any other content as needed. This README provides detailed information about the project, its features, requirements, setup instructions, and additional details about the JSON Server setup.
