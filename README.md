@@ -1,6 +1,3 @@
-Here's the README file tailored to your requirements:
-
-```markdown
 # 3DEEZ Online Store Web Application
 
 Welcome to the 3DEEZ Online Store web application repository! This project is designed to showcase a web application for an online store specializing in 3D printed items. The application consists of two parts: Back Office for administrators and Front Office for customers and visitors.
