@@ -123,7 +123,7 @@ To get started with the 3DEEZ Online Store web application, follow the steps bel
 
 2. **Install Dependencies:**
    ```bash
-   cd 3deez-online-store
+   cd 3deez
    npm install
    ```
 
@@ -140,13 +140,11 @@ To get started with the 3DEEZ Online Store web application, follow the steps bel
 
 ## Contributors
 
-- [Your Name]
-- [Contributor 1]
-- [Contributor 2]
-- ...
+- [Laghouanem Sofien]
+
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [ISET](LICENSE).
 
 Happy coding! 🚀
