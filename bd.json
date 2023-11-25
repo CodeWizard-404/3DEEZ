@@ -30,6 +30,9 @@
                 {
                     "color": "Black & White",
                     "size": "Custom"
+                },
+                {
+                    "description": "Transparent mountan keycpas"
                 }
             ],
             "category": "Keycaps"
@@ -45,6 +48,9 @@
                 {
                     "color": "MultiColored",
                     "size": "Large"
+                },
+                {
+                    "description": "Desktop figuring decoration of luffy"
                 }
             ],
             "category": "Figure"
@@ -60,6 +66,9 @@
                 {
                     "color": "Purpil",
                     "size": "Custom"
+                },
+                {
+                    "description": "Valorant ISO keycaps"
                 }
             ],
             "category": "Keycaps"
@@ -75,6 +84,9 @@
                 {
                     "color": "Black",
                     "size": "Medium"
+                },
+                {
+                    "description": "Headset holder for desktop"
                 }
             ],
             "category": "Desktop"
@@ -90,6 +102,9 @@
                 {
                     "color": "MultiColored",
                     "size": "Medium"
+                },
+                {
+                    "description": "Valorant gaming knife"
                 }
             ],
             "category": "Desktop"
@@ -105,6 +120,9 @@
                 {
                     "color": "Black & White",
                     "size": "Custom"
+                },
+                {
+                    "description": "Valorant gaming keycaps"
                 }
             ],
             "category": "Keycaps"

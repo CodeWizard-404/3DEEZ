@@ -1,4 +1,5 @@
 export interface Product {
+
 name: any;
   id: number;
   title: string;
@@ -7,5 +8,6 @@ name: any;
   isNew: boolean;
   releaseDate: string;
   details: { color: string; size: string }[];
+  description: string;
   category: string;
 }

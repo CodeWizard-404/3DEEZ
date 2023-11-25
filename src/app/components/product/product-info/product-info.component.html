@@ -8,7 +8,6 @@
         <p>{{ product.description }}</p>
         <p ><strong>Price:</strong> <span class="badge badge-primary">{{ product.price | pricing}}</span></p>
         <p><strong>New:</strong> {{ product.isNew ? 'Yes' : 'No' }}</p>
-        
         <hr>
         <h4>Details</h4>
         <ul>
@@ -23,7 +22,7 @@
         </ul>
         <hr>
         <p class="more">Category: {{ product.category }}</p>
-        <p class="more"><strong>Release Date:</strong> {{ product.releaseDate | date: 'mediumDate'  }}</p>
+        <p class="more"><strong>Release Date:</strong> {{ product.releaseDate | date: 'mediumDate'}}</p>
         <hr>
         <button class="btn btn-dark" (click)="addToCart()">Add to Cart</button>
 

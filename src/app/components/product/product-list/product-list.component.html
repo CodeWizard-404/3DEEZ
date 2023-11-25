@@ -1,23 +1,20 @@
 <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2>Our Products</h2>
-      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Our Products</h2>
     </div>
-    <div class="row">
-      <div class="col-md-4" *ngFor="let product of products">
-        <div class="card">
-          <img [src]="product.photo" class="card-img-top" alt="{{ product.title }}">
-          <div class="card-body">
-            <h5 class="card-title">{{ product.title }}</h5>
-            <p class="card-text">{{ product.description }}</p>
-            <p class="card-text"><strong>Price:</strong> {{ product.price }}</p>
-            <button class="btn btn-primary" (click)="viewProductDetails(product.id)">Check It</button>
-            <span *ngIf="product.isNew" class="badge badge-warning new">New</span>
-            
-          </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3" *ngFor="let product of products">
+      <div class="card">
+        <img [src]="product.photo" class="card-img-top" alt="{{ product.title }}">
+        <div class="card-body">
+          <h6 class="card-title">{{ product.title }}</h6>
+          <p class="card-text"><strong>Price:</strong> {{ product.price |pricing }}</p>
+          <button class="btn btn-primary btn-sm" (click)="viewProductDetails(product.id)">Check It</button>
+          <span *ngIf="product.isNew" class="badge badge-warning new">New</span>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
