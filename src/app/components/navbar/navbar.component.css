@@ -1,0 +1,75 @@
+.navbar {
+  padding: 10px 20px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.logo-img {
+  height: 30px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-weight: bold;
+}
+
+.form-inline .form-control,
+.form-inline .btn {
+  border: 1px solid #fff;
+  color: #fff;
+  margin-left: 20px;
+}
+
+.form-inline .btn:hover {
+  border: 1px solid #007bff;
+  background-color: #007bff;
+}
+
+.navbar-nav .nav-link {
+  position: relative;
+  margin-left: 15px;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #3498db;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #3498db;
+}
+
+.navbar-nav .nav-link:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.navbar-nav .nav-link {
+  position: relative;
+  transition: color 0.3s ease-in-out, cursor 0.3s ease-in-out;
+  cursor: default;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #3498db;
+  cursor: pointer;
+}
+
+.navbar-nav .nav-link:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

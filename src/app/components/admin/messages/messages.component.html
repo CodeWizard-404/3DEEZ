@@ -1,0 +1,26 @@
+<section>
+    <h3>Contact Messages</h3>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Message</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let message of contactMessages">
+          <td>{{ message.id }}</td>
+          <td>{{ message.name }}</td>
+          <td>{{ message.email }}</td>
+          <td>{{ message.message }}</td>
+          <td>
+            <button class="btn btn-sm btn-danger" (click)="deleteMessage(message)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>

@@ -1,0 +1,55 @@
+/* home.component.css */
+.welcome-section {
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    text-shadow: 2px 2px 8px rgb(0, 0, 0);
+  }
+
+#bgVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+  .about-section {
+    padding: 80px 0;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.068); 
+  }
+  
+  .about-text {
+    font-size: 18px;
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.829) 
+    }
+  
+  .services-section {
+    padding: 80px 0;
+    color: white;
+  }
+  
+  .service-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .service-description {
+    font-size: 16px;
+  }
+  
+  .products-section {
+    padding: 80px 0;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.068); 
+
+  }
+  
+  .faq-section {
+    padding: 80px 0;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.068); 
+
+  }
+  

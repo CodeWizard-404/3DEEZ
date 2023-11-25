@@ -1,0 +1,22 @@
+<section>
+    <h3>Purchased Products</h3>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Product</th>
+          <th>Client</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let purchase of purchasedProducts">
+          <td>{{ purchase.id }}</td>
+          <td>{{ purchase.product.title }}</td>
+          <td>{{ purchase.client.name }}</td>
+          <td>{{ purchase.quantity }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
