@@ -15,35 +15,13 @@ import { ProductsComponent } from './components/admin/products/products.componen
 import { PurchasesComponent } from './components/admin/purchases/purchases.component';
 import { AddProdComponent } from './components/admin/products/add-prod/add-prod.component';
 
-// import { AdminGuard } from './guards/admin.guard';
-// import { ClientGuard } from './guards/client.guard';
-
-// const routes: Routes = [
-//   { path: 'home', component: HomeComponent },
-//   { path: 'admin', component: AdminComponent, canActivate: [AdminGuard] },
-//   { path: 'client', component: ClientComponent, canActivate: [ClientGuard] },
-//   { path: 'auth', component: AuthComponent },
-//   {
-//     path: 'products',
-//     children: [
-//       { path: '', component: ProductListComponent },
-//       { path: ':id', component: ProductInfoComponent },
-//     ],
-//   },
-//   { path: 'error', component: ErrorComponent },
-//   { path: 'admin/clients', component: ClientsComponent, canActivate: [AdminGuard] },
-//   { path: 'admin/messages', component: MessagesComponent, canActivate: [AdminGuard] },
-//   { path: 'admin/products', component: ProductsComponent, canActivate: [AdminGuard] },
-//   { path: 'admin/purchases', component: PurchasesComponent, canActivate: [AdminGuard] },
-//   { path: '', redirectTo: '/home', pathMatch: 'full' },
-//   { path: '**', redirectTo: '/error' },
-// ];
-
+import { AdminGuard } from './guards/admin.guard';
+import { ClientGuard } from './guards/client.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'client', component: ClientComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AdminGuard] },
+  { path: 'client', component: ClientComponent, canActivate: [ClientGuard] },
   { path: 'auth', component: AuthComponent },
   {
     path: 'products',
@@ -52,12 +30,11 @@ const routes: Routes = [
       { path: ':id', component: ProductInfoComponent },
     ],
   },
-  { path: 'admin/clients', component: ClientsComponent },
-  { path: 'admin/messages', component: MessagesComponent },
-  { path: 'admin/products', component: ProductsComponent },
-  { path: 'admin/products/add', component: AddProdComponent },
-  { path: 'admin/purchases', component: PurchasesComponent },
   { path: 'error', component: ErrorComponent },
+  { path: 'admin/clients', component: ClientsComponent, canActivate: [AdminGuard] },
+  { path: 'admin/messages', component: MessagesComponent, canActivate: [AdminGuard] },
+  { path: 'admin/products', component: ProductsComponent, canActivate: [AdminGuard] },
+  { path: 'admin/purchases', component: PurchasesComponent, canActivate: [AdminGuard] },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/error' },
 ];

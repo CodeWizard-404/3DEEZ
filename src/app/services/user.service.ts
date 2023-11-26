@@ -27,7 +27,7 @@ export class UserService {
     return this.http.get<User>(`${this.usersUrl}/current-user`);
   }
 
-  updatePassword(id: number, newPassword: string): Observable<void> {
-return this.http.put<void>(`${this.usersUrl}/${id}/update-password`, { newPassword });
+  updateUserPassword(userId: number, newPassword: string): Observable<void> {
+    return this.http.put<void>(`${this.usersUrl}/${userId}/update-password`, { newPassword });
   }
 }
