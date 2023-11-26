@@ -1,4 +1,3 @@
-// admin-navbar.component.ts
 
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
@@ -18,4 +17,5 @@ export class AdminNavbarComponent {
     this.router.navigate(['/auth']);
 
   }
+  
 }

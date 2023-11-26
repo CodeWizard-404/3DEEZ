@@ -19,22 +19,9 @@ import { ClientGuard } from './guards/client.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  {
-    path: 'admin',
-    component: AdminComponent,
-    canActivate: [AdminGuard],
-    children: [
-      { path: 'clients', component: ClientsComponent },
-      { path: 'messages', component: MessagesComponent },
-      { path: 'products', component: ProductsComponent },
-      { path: 'purchases', component: PurchasesComponent },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, 
-    ],
-  },
-
+  { path: 'admin', component: AdminComponent, canActivate: [AdminGuard] },
   { path: 'client', component: ClientComponent, canActivate: [ClientGuard] },
   { path: 'auth', component: AuthComponent },
-
   {
     path: 'products',
     children: [
@@ -42,12 +29,47 @@ const routes: Routes = [
       { path: ':id', component: ProductInfoComponent },
     ],
   },
-
   { path: 'error', component: ErrorComponent },
+  { path: 'admin/clients', component: ClientsComponent, canActivate: [AdminGuard] },
+  { path: 'admin/messages', component: MessagesComponent, canActivate: [AdminGuard] },
+  { path: 'admin/products', component: ProductsComponent, canActivate: [AdminGuard] },
+  { path: 'admin/purchases', component: PurchasesComponent, canActivate: [AdminGuard] },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/error' },
 ];
 
+
+
+// const routes: Routes = [
+//   { path: 'home', component: HomeComponent },
+//   {
+//     path: 'admin',
+//     component: AdminComponent,
+//     canActivate: [AdminGuard],
+//     children: [
+//       { path: 'clients', component: ClientsComponent },
+//       { path: 'messages', component: MessagesComponent },
+//       { path: 'products', component: ProductsComponent },
+//       { path: 'purchases', component: PurchasesComponent },
+//       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, 
+//     ],
+//   },
+
+//   { path: 'client', component: ClientComponent, canActivate: [ClientGuard] },
+//   { path: 'auth', component: AuthComponent },
+
+//   {
+//     path: 'products',
+//     children: [
+//       { path: '', component: ProductListComponent },
+//       { path: ':id', component: ProductInfoComponent },
+//     ],
+//   },
+
+//   { path: 'error', component: ErrorComponent },
+//   { path: '', redirectTo: '/home', pathMatch: 'full' },
+//   { path: '**', redirectTo: '/error' },
+// ];
 
 
 @NgModule({
