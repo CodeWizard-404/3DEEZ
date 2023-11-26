@@ -46,7 +46,8 @@ export class AuthService {
   
         if (!isEmailTaken) {
           user.role = 'client';
-          users.push(user);
+          const maxId = users.reduce((max, u) => (u.id > max ? u.id : max), 0);
+            user.id = maxId + 1;
   
           return this.http.post<void>(this.userlogsUrl, user).pipe(
             map(() => {
@@ -54,8 +55,8 @@ export class AuthService {
             })
           );
         } else {
-          console.log('Email is already taken');
-          return of(undefined); 
+          this.snackBar.open('Email is already taken');
+          return of(undefined);
         }
       })
     );

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-auth',
@@ -15,7 +16,7 @@ export class AuthComponent implements OnInit {
   passwordChangeForm: FormGroup;
   mode: 'login' | 'signup' = 'login';
 
-  constructor(private fb: FormBuilder, private authService: AuthService,private router: Router) {
+  constructor(private fb: FormBuilder, private authService: AuthService,private router: Router,private snackBar: MatSnackBar) {
     this.authForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -40,6 +41,9 @@ export class AuthComponent implements OnInit {
   onSubmit(): void {
     if (this.isSignUp()) {
       this.authService.register(this.authForm.value).subscribe(() => {
+        this.snackBar.open('Password changed successfully.', 'OK', {
+          duration: 3000,
+        });
       });
     } else {
       const { email, password } = this.authForm.value;
