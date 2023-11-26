@@ -4,21 +4,22 @@ import { UserService } from './user.service';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { User } from '../classes/user';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  isAuthenticated(): boolean {
-    throw new Error('Method not implemented.');
-  }
+
   private currentUserSubject: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
   currentUser$: Observable<User | null> = this.currentUserSubject.asObservable();
 
-  constructor(private userService: UserService) {}
+  private userlogsUrl = 'http://localhost:3000/users';
+
+  constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable<boolean> {
-    return this.userService.getAllUsers().pipe(
+    return this.http.get<User[]>(this.userlogsUrl).pipe(
       map((users: User[]) => {
         const user = users.find((u) => u.email === email && u.password === password);
 
@@ -26,10 +27,10 @@ export class AuthService {
           this.currentUserSubject.next(user);
           return true;
         } else {
-          return false; // Return false when the user is not found
+          return false; 
         }
       }),
-      catchError(() => of(false)) // Handle observable error
+      catchError(() => of(false)) 
     );
   }
 
@@ -38,38 +39,58 @@ export class AuthService {
   }
 
   register(user: User): Observable<void> {
-    return this.userService.getAllUsers().pipe(
+    return this.http.get<User[]>(this.userlogsUrl).pipe(
       switchMap((users: User[]) => {
-        // Check if the email is already registered
         const isEmailTaken = users.some(u => u.email === user.email);
-  
+
         if (!isEmailTaken) {
-          // Assign a default role for simplicity (you might have a better way to handle roles)
           user.role = 'client';
-  
-          // Add the new user to the array
           users.push(user);
-  
-          // Update the JSON file (for simplicity, you might use a backend server in a real application)
-          return this.userService.updateUsers(users).pipe(
+
+          return this.http.put<void>(this.userlogsUrl, users).pipe(
             map(() => {
-              // Set the current user after successful registration
               this.currentUserSubject.next(user);
             })
           );
         } else {
           console.log('Email is already taken');
-          // Handle the case when the email is already registered
-          return of(undefined); // Return undefined to match Observable<void>
+          return of(undefined); 
         }
       })
     );
   }
-  
 
-  // Add a method for social login (Google, GitHub, Facebook) if needed
+
+
+  changePassword(newPassword: string): Observable<void> {
+    const currentUser = this.getCurrentUser();
+
+    if (currentUser) {
+      // Assume there's a method in UserService to update the user's password
+      return this.userService.updateUserPassword(currentUser.id, newPassword).pipe(
+        tap(() => {
+          alert('Password changed successfully.'); // Display success message
+          // Additional handling if needed
+        }),
+        catchError((error) => {
+          console.error('Error changing password:', error);
+          alert('Failed to change password. Please try again.'); // Display error message
+          // Additional error handling if needed
+          return of(undefined);
+        })
+      );
+    } else {
+      console.error('No user found to change password.');
+      return of(undefined);
+    }
+  }
+  
 
   isAdmin(): boolean {
     return this.currentUserSubject.value?.role === 'admin' || false;
+  }
+
+  isAuthenticated(): boolean {
+    throw new Error('Method not implemented.');
   }
 }

@@ -1,12 +1,15 @@
 <section>
-    <h3>Client Management</h3>
+    <h3><span class="badge badge-dark">Client Management</span></h3>
 
     <table class="table">
       <thead>
         <tr>
           <th>ID</th>
           <th>Name</th>
+          <th>Last Name</th>
+          <th>Phone</th>
           <th>Email</th>
+          <th>Address</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -14,10 +17,14 @@
         <tr *ngFor="let client of clients">
           <td>{{ client.id }}</td>
           <td>{{ client.name }}</td>
+          <td>{{ client.lastName }}</td>
+          <td>{{ client.phone }}</td>
           <td>{{ client.email }}</td>
-          <td>
-            <button class="btn btn-sm btn-info" (click)="viewClientDetails(client)">View Details</button>
-            <button class="btn btn-sm btn-danger" (click)="deleteClient(client)">Delete</button>
+          <td>{{ client.address }} - {{client.city}}</td>
+          <td >
+            <div class="btn-group" >
+            <button class="btn btn-sm btn-info" (click)="viewClientDetails(client)">Edit</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteClient(client)">Delete</button></div>
           </td>
         </tr>
       </tbody>

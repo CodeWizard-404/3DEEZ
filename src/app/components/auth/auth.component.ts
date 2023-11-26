@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -14,14 +15,20 @@ export class AuthComponent implements OnInit {
   passwordChangeForm: FormGroup;
   mode: 'login' | 'signup' = 'login';
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService,private router: Router) {
     this.authForm = this.fb.group({
-      //auth form controls 
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-    });
+      // Add more form controls if needed for signup
+      confirmPassword: [''],
+      name: [''],
+      lastName: [''],
+      phone: [''],
+      address: [''],
+      city: [''],
+      postalCode: ['']
+    }, { validators: this.passwordMatchValidator });
 
-    //passwordChangeForm
     this.passwordChangeForm = this.fb.group({
       currentPassword: ['', [Validators.required, Validators.minLength(6)]],
       newPassword: ['', [Validators.required, Validators.minLength(6)]],
@@ -30,45 +37,44 @@ export class AuthComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      confirmPassword: [''],
-      name: [''],
-      lastName: [''],
-      phone: [''],
-      address: [''],
-      country: [''],
-      postalCode: ['']
-    }, { validators: this.passwordMatchValidator });
-
-    this.passwordChangeForm = this.fb.group({
-      newPassword: ['', Validators.required]
-    });
+    // Remove the redundant form initialization
   }
 
   onSubmit(): void {
     if (this.isSignUp()) {
       this.authService.register(this.authForm.value).subscribe(() => {
-        // Handle successful registration if needed
+        // Successful registration
       });
     } else {
       const { email, password } = this.authForm.value;
       this.authService.login(email, password).subscribe((loggedIn) => {
         if (loggedIn) {
-          // Handle successful login if needed
+          const userRole = this.authService.getCurrentUser()?.role;
+          if (userRole === 'admin') {
+            this.router.navigate(['/admin']); 
+          } else if (userRole === 'client') {
+            this.router.navigate(['/client']); 
+          }
         } else {
-          // Handle login failure if needed
+          alert('Invalid email or password. Please try again.'); 
         }
       });
     }
   }
 
   onChangePassword(): void {
-    //const newPassword = this.passwordChangeForm.get('newPassword').value;
-    //this.authService.changePassword(newPassword).subscribe(() => {
-      // Handle successful password change if needed
-    //});
+    const newPassword = this.passwordChangeForm.get('newPassword').value;
+    this.authService.changePassword(newPassword).subscribe(
+      () => {
+        alert('Password changed successfully.'); // Display success message
+        // Additional handling if needed
+      },
+      (error) => {
+        console.error('Error changing password:', error);
+        alert('Failed to change password. Please try again.'); // Display error message
+        // Additional error handling if needed
+      }
+    );
   }
 
   isSignUp(): boolean {
@@ -80,12 +86,12 @@ export class AuthComponent implements OnInit {
   }
 
   private passwordMatchValidator(group: FormGroup): any {
-    //const password = group.get('password').value;
-    //const confirmPassword = group.get('confirmPassword').value;
-
-    //return password === confirmPassword ? null : { mismatch: true };
+    const password = group.get('password').value;
+    const confirmPassword = group.get('confirmPassword').value;
+    return password === confirmPassword ? null : { mismatch: true };
   }
-  isAuthenticated(): any {
-    throw new Error('Method not implemented.');
-    }
+
+  isAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
 }

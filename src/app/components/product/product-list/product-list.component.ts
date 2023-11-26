@@ -40,7 +40,7 @@ export class ProductListComponent implements OnInit {
     const lowerCaseSearchTerm = this.searchTerm.toLowerCase();
 
     return products.filter(product => 
-      product.name.toLowerCase().includes(lowerCaseSearchTerm) ||
+      product.title.toLowerCase().includes(lowerCaseSearchTerm) ||
       product.category.toLowerCase().includes(lowerCaseSearchTerm)
     );
   }

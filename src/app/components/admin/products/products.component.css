@@ -1,0 +1,8 @@
+img{
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+}
+section{
+    padding: 5% 5% 0% 5%;
+}

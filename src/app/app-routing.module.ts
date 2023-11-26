@@ -13,6 +13,7 @@ import { ClientsComponent } from './components/admin/clients/clients.component';
 import { MessagesComponent } from './components/admin/messages/messages.component';
 import { ProductsComponent } from './components/admin/products/products.component';
 import { PurchasesComponent } from './components/admin/purchases/purchases.component';
+import { AddProdComponent } from './components/admin/products/add-prod/add-prod.component';
 
 // import { AdminGuard } from './guards/admin.guard';
 // import { ClientGuard } from './guards/client.guard';
@@ -51,15 +52,16 @@ const routes: Routes = [
       { path: ':id', component: ProductInfoComponent },
     ],
   },
-  
   { path: 'admin/clients', component: ClientsComponent },
-  { path: 'admin/messages', component: MessagesComponent},
-  { path: 'admin/products', component: ProductsComponent  },
-  { path: 'admin/purchases', component: PurchasesComponent},
+  { path: 'admin/messages', component: MessagesComponent },
+  { path: 'admin/products', component: ProductsComponent },
+  { path: 'admin/products/add', component: AddProdComponent },
+  { path: 'admin/purchases', component: PurchasesComponent },
   { path: 'error', component: ErrorComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/error' },
 ];
+
 
 
 @NgModule({

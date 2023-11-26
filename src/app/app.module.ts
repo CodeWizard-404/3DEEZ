@@ -32,6 +32,10 @@ import { ProductsComponent } from './components/admin/products/products.componen
 import { ClientsComponent } from './components/admin/clients/clients.component';
 import { PurchasesComponent } from './components/admin/purchases/purchases.component';
 import { MessagesComponent } from './components/admin/messages/messages.component';
+import { AddProdComponent } from './components/admin/products/add-prod/add-prod.component';
+import { EditProdComponent } from './components/admin/products/edit-prod/edit-prod.component';
+import { DeleteProdComponent } from './components/admin/products/delete-prod/delete-prod.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -53,6 +57,9 @@ import { MessagesComponent } from './components/admin/messages/messages.componen
     ClientsComponent,
     PurchasesComponent,
     MessagesComponent,
+    AddProdComponent,
+    EditProdComponent,
+    DeleteProdComponent,
     
   ],
   imports: [
@@ -64,6 +71,7 @@ import { MessagesComponent } from './components/admin/messages/messages.componen
     MatListModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    NgbModule,
   ],
   providers: [provideHttpClient(),],
   bootstrap: [AppComponent],

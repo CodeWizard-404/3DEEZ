@@ -23,7 +23,14 @@ export class ProductService {
     const searchUrl = `${this.productsUrl}?q=${searchTerm}`;
     return this.http.get<Product[]>(searchUrl);
   }
+  addProduct(product: Product): Observable<void> {
+    return this.http.post<void>(`${this.productsUrl}`, product);
+  }
+
   
+
+
+
 
   getPurchasedItems(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.productsUrl}/purchased-items`);
