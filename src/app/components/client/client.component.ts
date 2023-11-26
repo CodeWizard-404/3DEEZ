@@ -1,4 +1,3 @@
-// client.component.ts
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../classes/product';
 import { User } from '../../classes/user';

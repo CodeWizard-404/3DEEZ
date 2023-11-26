@@ -36,6 +36,8 @@ import { AddProdComponent } from './components/admin/products/add-prod/add-prod.
 import { EditProdComponent } from './components/admin/products/edit-prod/edit-prod.component';
 import { DeleteProdComponent } from './components/admin/products/delete-prod/delete-prod.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
@@ -72,6 +74,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     ReactiveFormsModule,
     NgbModule,
+    MatSnackBarModule
   ],
   providers: [provideHttpClient(),],
   bootstrap: [AppComponent],

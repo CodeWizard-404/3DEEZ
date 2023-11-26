@@ -1,4 +1,4 @@
-// auth.component.ts
+// auth..ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
@@ -19,7 +19,6 @@ export class AuthComponent implements OnInit {
     this.authForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      // Add more form controls if needed for signup
       confirmPassword: [''],
       name: [''],
       lastName: [''],
@@ -35,46 +34,54 @@ export class AuthComponent implements OnInit {
       confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
-
   ngOnInit(): void {
-    // Remove the redundant form initialization
   }
 
   onSubmit(): void {
     if (this.isSignUp()) {
       this.authService.register(this.authForm.value).subscribe(() => {
-        // Successful registration
       });
     } else {
       const { email, password } = this.authForm.value;
       this.authService.login(email, password).subscribe((loggedIn) => {
         if (loggedIn) {
-          const userRole = this.authService.getCurrentUser()?.role;
-          if (userRole === 'admin') {
-            this.router.navigate(['/admin']); 
-          } else if (userRole === 'client') {
-            this.router.navigate(['/client']); 
-          }
+          this.authService.currentUser$.subscribe((user) => {
+            if (user) {
+              const userRole = user.role;
+              this.navigateToRole(userRole);
+            }
+          });
         } else {
-          alert('Invalid email or password. Please try again.'); 
+          alert('Invalid email or password. Please try again.');
         }
       });
     }
   }
 
+  private navigateToRole(role: string): void {
+    if (role === 'admin') {
+      this.router.navigate(['/admin']);
+    } else if (role === 'client') {
+      this.router.navigate(['/client']);
+    }
+  }
+
   onChangePassword(): void {
-    const newPassword = this.passwordChangeForm.get('newPassword').value;
-    this.authService.changePassword(newPassword).subscribe(
-      () => {
-        alert('Password changed successfully.'); // Display success message
-        // Additional handling if needed
-      },
-      (error) => {
-        console.error('Error changing password:', error);
-        alert('Failed to change password. Please try again.'); // Display error message
-        // Additional error handling if needed
-      }
-    );
+    const newPasswordControl = this.passwordChangeForm?.get('newPassword');
+  
+    if (newPasswordControl) {
+      const newPassword = newPasswordControl.value;
+      
+      this.authService.changePassword(newPassword).subscribe(
+        () => {
+          alert('Password changed successfully.'); 
+        },
+        (error) => {
+          console.error('Error changing password:', error);
+          alert('Failed to change password. Please try again.'); 
+        }
+      );
+    }
   }
 
   isSignUp(): boolean {
@@ -86,10 +93,19 @@ export class AuthComponent implements OnInit {
   }
 
   private passwordMatchValidator(group: FormGroup): any {
-    const password = group.get('password').value;
-    const confirmPassword = group.get('confirmPassword').value;
-    return password === confirmPassword ? null : { mismatch: true };
+    const passwordControl = group.get('password');
+    const confirmPasswordControl = group.get('confirmPassword');
+  
+    if (passwordControl && confirmPasswordControl) {
+      const password = passwordControl.value;
+      const confirmPassword = confirmPasswordControl.value;
+  
+      return password === confirmPassword ? null : { mismatch: true };
+    } else {
+      return null;
+    }
   }
+  
 
   isAuthenticated(): boolean {
     return this.authService.isAuthenticated();

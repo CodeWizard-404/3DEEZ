@@ -21,7 +21,7 @@ export class PurchasesComponent {
 
   loadPurchasedProducts(): void {
     if (!this.userId) {
-      return; // Don't proceed if userId is not provided
+      return; 
     }
 
     this.userService.getUserById(this.userId).subscribe(user => {
@@ -35,7 +35,7 @@ export class PurchasesComponent {
           return {
             productId: purchase.productId,
             quantity: purchase.quantity,
-            totalPrice: product.price * purchase.quantity, // Calculate totalPrice
+            totalPrice: product.price * purchase.quantity, 
             product: product,
             client: user,
           };
