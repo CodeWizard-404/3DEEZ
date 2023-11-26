@@ -148,11 +148,11 @@ To simulate a backend, the application uses JSON Server. Here's how to start it:
    ```
 
 2. **Create a JSON Data File:**
-   Create a `db.json` file in the project root with sample data.
+   Create a `bd.json` file in the project root with sample data.
 
 3. **Start JSON Server:**
    ```bash
-   json-server --watch db.json
+   json-server --watch bd.json
    ```
 
    Access the JSON Server API at `http://localhost:3000/`.
