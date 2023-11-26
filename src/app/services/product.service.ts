@@ -10,6 +10,9 @@ export class ProductService {
   private productsUrl = 'http://localhost:3000/products'; 
   constructor(private http: HttpClient) {}
 
+
+
+
   getAllProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.productsUrl);
   }
@@ -19,10 +22,17 @@ export class ProductService {
       map(products => products.find(product => product.id === id))
     );
   }
+
+
+
   searchProducts(searchTerm: string): Observable<Product[]> {
     const searchUrl = `${this.productsUrl}?q=${searchTerm}`;
     return this.http.get<Product[]>(searchUrl);
   }
+
+
+
+  
   addProduct(product: Product): Observable<void> {
     return this.http.post<void>(`${this.productsUrl}`, product);
   }

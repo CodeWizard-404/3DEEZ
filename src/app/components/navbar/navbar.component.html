@@ -18,17 +18,14 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/products">Store</a>
       </li>
-      <li class="nav-item" *ngIf="!isAdmin">
+      <li class="nav-item" >
         <a class="nav-link" [routerLink]="'/home'" fragment="contact">Contact Us</a>
       </li>
-      <li class="nav-item" *ngIf="!isAdmin">
+      <li class="nav-item" >
         <a class="nav-link" [routerLink]="'/home'" fragment="about">About Us</a>
       </li>
-      <li class="nav-item" *ngIf="!isAdmin">
+      <li class="nav-item" >
         <a class="nav-link" routerLink="/auth">Login</a>
-      </li>
-      <li class="nav-item" *ngIf="isAdmin">
-        <a class="nav-link">Orders</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" (ngSubmit)="search()">

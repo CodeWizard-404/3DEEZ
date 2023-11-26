@@ -11,7 +11,7 @@ export class NavbarComponent {
   @Input() isAdmin: boolean = false;
   searchTerm: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor( private router: Router) {}
 
   search(): void {
     this.router.navigate(['/products'], { queryParams: { q: this.searchTerm } });

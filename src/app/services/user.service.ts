@@ -28,6 +28,6 @@ export class UserService {
   }
 
   updateUserPassword(userId: number, newPassword: string): Observable<void> {
-    return this.http.put<void>(`${this.usersUrl}/${userId}/update-password`, { newPassword });
+    return this.http.put<void>(`${this.usersUrl}/${userId}/password`, { newPassword });
   }
 }

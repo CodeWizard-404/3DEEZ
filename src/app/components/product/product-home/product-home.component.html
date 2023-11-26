@@ -1,20 +1,17 @@
-<!-- product-home.component.html -->
-
 <div class="container">
-    <div class="row">
-      <div class="col-md-15 card-container">
-        <div class="card-row">
-          <div class="card" *ngFor="let product of newProducts">
-            <img [src]="product.photo" class="card-img-top" alt="{{ product.title }}">
-            <div class="card-body">
-              <h5 class="card-title">{{ product.title }}</h5>
-              <p class="card-text">{{ product.description }}</p>
-              <p class="card-text"><strong>Price:</strong> {{ product.price |pricing }}</p>
-              <button class="btn btn-primary" (click)="viewProductDetails(product.id)">Check It</button>
-            </div>
+  <div class="row">
+    <div class="col-md-15 card-container">
+      <div class="card-row">
+        <div class="card" *ngFor="let product of newProducts" [ngClass]="{'new': product.isNew}">
+          <img [src]="product.photo" class="card-img-top" alt="{{ product.title }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.title }}</h5>
+            <p class="card-text" [ngClass]="{'special-text': product.isSpecial}">{{ product.description }}</p>
+            <p class="card-text">{{ product.price | pricing }}</p>
+            <button class="btn btn-primary" (click)="viewProductDetails(product.id)">Check It</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

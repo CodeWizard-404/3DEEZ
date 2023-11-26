@@ -9,6 +9,7 @@ import { ProductService } from '../../../services/product.service';
 })
 export class ProductHomeComponent implements OnInit {
   newProducts: any[] = [];
+  
 
   constructor(private productService: ProductService, private router: Router) {}
 

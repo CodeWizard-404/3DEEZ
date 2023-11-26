@@ -5,7 +5,7 @@ import { ContactService } from '../../services/contact.service';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css'], // Add your styles here
+  styleUrls: ['./contact.component.css'],
 })
 export class ContactFormComponent {
   contactForm: FormGroup;

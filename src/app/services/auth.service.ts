@@ -43,12 +43,12 @@ export class AuthService {
     return this.http.get<User[]>(this.userlogsUrl).pipe(
       switchMap((users: User[]) => {
         const isEmailTaken = users.some(u => u.email === user.email);
-
+  
         if (!isEmailTaken) {
           user.role = 'client';
           users.push(user);
-
-          return this.http.put<void>(this.userlogsUrl, users).pipe(
+  
+          return this.http.post<void>(this.userlogsUrl, user).pipe(
             map(() => {
               this.currentUserSubject.next(user);
             })
