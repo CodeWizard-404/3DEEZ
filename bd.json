@@ -131,7 +131,7 @@
     {
       "id": 1,
       "email": "admin1",
-      "password": "admin",
+      "password": "admin1",
       "name": "Admin",
       "lastName": "3DEEZ",
       "role": "admin"
@@ -139,7 +139,7 @@
     {
       "id": 2,
       "email": "admin2",
-      "password": "admin",
+      "password": "admin2",
       "name": "Admin",
       "lastName": "3DEEZ",
       "role": "admin"
@@ -147,7 +147,7 @@
     {
       "id": 3,
       "email": "admin3",
-      "password": "admin",
+      "password": "admin3",
       "name": "Admin",
       "lastName": "3DEEZ",
       "role": "admin"
@@ -299,6 +299,7 @@
   ],
   "messages": [
     {
+      "id": 1,
       "name": "tester",
       "email": "testing",
       "message": "test message"

@@ -29,7 +29,7 @@
 
 <section class="services-section bg-dark">
   <div class="container text-center">
-    <h2 class="section-title">Our Services</h2>
+    <h2 class="section-title" style="color: white;">Our Services</h2>
     <div class="row">
       <div class="col-md-4">
         <i class="fas fa-cube fa-3x mb-3 text-primary"></i>
@@ -109,5 +109,35 @@
           </div>
       </div>
   </div>
+</section>
+
+
+
+<section id="Author" >
+  <div class="container text-center">
+    <h2 class="section-title">Author Github Profile</h2>
+  </div>
+<article class="about" data-page="api github">
+  <section>
+    <div id="github-user-info" class="user-info-container">
+      <div *ngIf="userData" class="user-info">
+        <h2>{{ userData.name }}</h2>
+        <img [src]="userData.avatar_url" alt="Profile Picture" class="img-fluid">
+        <p>Username: {{ userData.login }}</p>
+        <p>Followers: {{ userData.followers }}</p>
+        <p>Repositories: {{ userData.public_repos }}</p>
+        <p><a [href]="userData.html_url" target="_blank">View Profile</a></p>
+      </div>
+    </div>
+    <div id="github-repo-list" class="repo-list">
+      <div *ngFor="let repo of reposData" class="repo-item">
+        <h3>{{ repo.name }}</h3>
+        <p>{{ repo.description }}</p>
+        <p>Language: {{ repo.language }}</p>
+        <p><a [href]="repo.html_url" target="_blank">View Repository</a></p>
+      </div>
+    </div>
+  </section>
+</article>
 </section>
 

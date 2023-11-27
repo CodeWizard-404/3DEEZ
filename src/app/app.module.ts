@@ -34,9 +34,9 @@ import { PurchasesComponent } from './components/admin/purchases/purchases.compo
 import { MessagesComponent } from './components/admin/messages/messages.component';
 import { AddProdComponent } from './components/admin/products/add-prod/add-prod.component';
 import { EditProdComponent } from './components/admin/products/edit-prod/edit-prod.component';
-import { DeleteProdComponent } from './components/admin/products/delete-prod/delete-prod.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SearchComponent } from './components/search/search.component';
 
 
 @NgModule({
@@ -61,7 +61,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MessagesComponent,
     AddProdComponent,
     EditProdComponent,
-    DeleteProdComponent,
+    SearchComponent,
     
   ],
   imports: [

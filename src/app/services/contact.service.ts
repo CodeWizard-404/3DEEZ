@@ -20,11 +20,11 @@ export class ContactService {
     return this.http.get<Comment[]>(`${this.contactUrl}/comments`);
   }
 
-  getContactMessages(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.contactUrl}/contact-messages`);
+  submitContactInfo(contactInfo: ContactInfo): Observable<any> {
+    return this.http.post<ContactInfo>(`${this.contactUrl}/messages`, contactInfo);
   }
 
-  submitContactInfo(contactInfo: ContactInfo): Observable<void> {
-    return this.http.post<void>(`${this.contactUrl}/contact-info`, contactInfo);
+  getContactMessages(): Observable<ContactInfo[]> {
+    return this.http.get<ContactInfo[]>(`${this.contactUrl}/messages`);
   }
 }

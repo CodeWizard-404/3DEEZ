@@ -68,7 +68,9 @@ export class AuthService {
     const currentUser = this.getCurrentUser();
 
     if (currentUser) {
-      return this.userService.updateUserPassword(currentUser.id, newPassword).pipe(
+      currentUser.password = newPassword;
+
+      return this.userService.updateUser(currentUser).pipe(
         tap(() => {
           this.snackBar.open('Password changed successfully.', 'OK', {
             duration: 3000,

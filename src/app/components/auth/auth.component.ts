@@ -1,4 +1,3 @@
-// auth..ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
@@ -32,7 +31,6 @@ export class AuthComponent implements OnInit {
     this.passwordChangeForm = this.fb.group({
       currentPassword: ['', [Validators.required, Validators.minLength(6)]],
       newPassword: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
   ngOnInit(): void {
@@ -78,11 +76,11 @@ export class AuthComponent implements OnInit {
       
       this.authService.changePassword(newPassword).subscribe(
         () => {
-          alert('Password changed successfully.'); 
+          console.log('Password changed successfully.'); 
         },
         (error) => {
           console.error('Error changing password:', error);
-          alert('Failed to change password. Please try again.'); 
+          console.log('Failed to change password. Please try again.'); 
         }
       );
     }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../classes/product';
+import { SearchService } from '../../../services/search.service';
 
 @Component({
   selector: 'app-product-list',
@@ -16,36 +17,55 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private router: Router,
-    private route: ActivatedRoute
+    private searchService: SearchService
   ) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.searchTerm = params['q'] || '';
-      this.loadProducts();
+    this.searchService.searchTerm$.subscribe((term) => {
+      console.log('Received Search Term in Product List:', term);
+      this.searchTerm = term;
+      this.loadProducts(term);
+    });
+  
+    this.productService.getAllProducts().subscribe((products) => {
+      this.products = products;
     });
   }
-
-  loadProducts(): void {
-    this.productService.getAllProducts().subscribe(data => {
-      this.products = this.filterProducts(data);
-    });
-  }
-
-  filterProducts(products: Product[]): Product[] {
-    if (!this.searchTerm) {
-      return products; 
+  
+  private loadProducts(searchTerm: string): void {
+    console.log('Load Products with Search Term:', searchTerm);
+  
+    if (searchTerm.trim() === '') {
+      this.productService.getAllProducts().subscribe((products) => {
+        this.products = products;
+      });
+    } else {
+      this.productService.getProductsBySearchTerm(searchTerm).subscribe((products) => {
+        this.products = products;
+      });
     }
-
-    const lowerCaseSearchTerm = this.searchTerm.toLowerCase();
-
-    return products.filter(product => 
-      product.title.toLowerCase().includes(lowerCaseSearchTerm) ||
-      product.category.toLowerCase().includes(lowerCaseSearchTerm)
-    );
   }
+  
 
   viewProductDetails(productId: number): void {
     this.router.navigate(['/products', productId]);
   }
+
+  onSearch(searchTerm: string): void {
+    console.log('Search Term:', searchTerm);
+  
+    if (searchTerm.trim() !== '') {
+      this.productService.getProductsBySearchTerm(searchTerm).subscribe((filteredProducts) => {
+        console.log('Filtered Products:', filteredProducts);
+        this.products = filteredProducts;
+      });
+    } else {
+      this.productService.getAllProducts().subscribe((products) => {
+        this.products = products;
+      });
+    }
+  }
+  
+
+  
 }

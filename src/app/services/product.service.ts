@@ -7,6 +7,10 @@ import { Product } from '../classes/product';
   providedIn: 'root',
 })
 export class ProductService {
+  updateProduct(updatedProduct: any) {
+    throw new Error('Method not implemented.');
+  }
+
   private productsUrl = 'http://localhost:3000/products'; 
   constructor(private http: HttpClient) {}
 
@@ -23,12 +27,19 @@ export class ProductService {
     );
   }
 
-
-
-  searchProducts(searchTerm: string): Observable<Product[]> {
-    const searchUrl = `${this.productsUrl}?q=${searchTerm}`;
-    return this.http.get<Product[]>(searchUrl);
+  getProductsBySearchTerm(searchTerm: string): Observable<Product[]> {
+    return this.http.get<Product[]>(this.productsUrl).pipe(
+      map((products) =>
+        products.filter(
+          (product) =>
+            product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            product.category.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      )
+    );
   }
+  
+
 
 
 
@@ -37,10 +48,11 @@ export class ProductService {
     return this.http.post<void>(`${this.productsUrl}`, product);
   }
 
-  
 
-
-
+  deleteProduct(productId: number): Observable<void> {
+    const url = `${this.productsUrl}/${productId}`;
+    return this.http.delete<void>(url);
+  }
 
   getPurchasedItems(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.productsUrl}/purchased-items`);
@@ -71,7 +83,5 @@ export class ProductService {
   getPurchasedProducts() {
     throw new Error('Method not implemented.');
   }
-
-
 
 }

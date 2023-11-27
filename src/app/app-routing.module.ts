@@ -17,6 +17,10 @@ import { PurchasesComponent } from './components/admin/purchases/purchases.compo
 import { AdminGuard } from './guards/admin.guard';
 import { ClientGuard } from './guards/client.guard';
 
+
+import { AddProdComponent } from './components/admin/products/add-prod/add-prod.component';
+import { EditProdComponent } from './components/admin/products/edit-prod/edit-prod.component';
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AdminGuard] },
@@ -34,6 +38,9 @@ const routes: Routes = [
   { path: 'admin/messages', component: MessagesComponent, canActivate: [AdminGuard] },
   { path: 'admin/products', component: ProductsComponent, canActivate: [AdminGuard] },
   { path: 'admin/purchases', component: PurchasesComponent, canActivate: [AdminGuard] },
+
+  { path: 'admin/products/add', component: AddProdComponent, canActivate: [AdminGuard] },
+  { path: 'admin/products/edit', component: EditProdComponent, canActivate: [AdminGuard] },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/error' },
 ];
