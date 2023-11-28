@@ -73,24 +73,6 @@
       "category": "Keycaps"
     },
     {
-      "id": 5,
-      "title": "Headset Holder",
-      "photo": "../../../../assets/images/Products/headset_holder.jpg",
-      "price": 70,
-      "isNew": false,
-      "releaseDate": "2023-10-10",
-      "details": [
-        {
-          "color": "Black",
-          "size": "Medium"
-        },
-        {
-          "description": "Headset holder for desktop"
-        }
-      ],
-      "category": "Desktop"
-    },
-    {
       "id": 6,
       "title": "Valo Karambit",
       "photo": "../../../../assets/images/Products/valo_karambit.jpg",
@@ -131,7 +113,7 @@
     {
       "id": 1,
       "email": "admin1",
-      "password": "admin1",
+      "password": "admin123456",
       "name": "Admin",
       "lastName": "3DEEZ",
       "role": "admin"
@@ -303,6 +285,12 @@
       "name": "tester",
       "email": "testing",
       "message": "test message"
+    },
+    {
+      "name": "test123",
+      "email": "sofienlaghouanem@outlook.com",
+      "message": "test description",
+      "id": 2
     }
   ]
 }
