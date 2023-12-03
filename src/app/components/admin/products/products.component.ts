@@ -3,11 +3,10 @@ import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../classes/product';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrl: './products.component.css'
+  styleUrls: ['./products.component.css'] 
 })
 export class ProductsComponent {
   products: Product[] = []; 
@@ -16,7 +15,6 @@ export class ProductsComponent {
     private productService: ProductService,
     private router: Router
   ) {}
-  
 
   ngOnInit(): void {
     this.loadProducts();
@@ -31,12 +29,13 @@ export class ProductsComponent {
   addProduct(): void {
     this.router.navigate(['/admin/products/add']);
   }
+
+  editProduct(product: Product): void {
+    this.router.navigate(['/admin/products/edit', product.id]); 
+  }
   
 
-editProduct(product: Product): void {
-  this.router.navigate(['/admin/products/edit', product.id]);
-}
-
+  
 
   deleteProduct(product: Product): void {
     const confirmDelete = confirm(`Are you sure you want to delete ${product.title}?`);
@@ -46,6 +45,4 @@ editProduct(product: Product): void {
       });
     }
   }
-
-
 }
