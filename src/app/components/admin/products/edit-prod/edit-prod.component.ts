@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router,RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from '../../../../classes/product';
 import { ProductService } from '../../../../services/product.service';
@@ -13,6 +13,8 @@ export class EditProdComponent implements OnInit {
   productId!: number;
   product!: Product;
   editForm: FormGroup;
+
+  
 
   constructor(
     private route: ActivatedRoute,
@@ -48,19 +50,34 @@ export class EditProdComponent implements OnInit {
 
   loadProduct(): void {
     this.productService.getProductById(this.productId).subscribe(data => {
-      // this.product = data ?? {}; // Use an empty object if data is undefined
-      // this.editForm.patchValue(data);
+      if (data) {
+        this.product = data as Product;
+        this.editForm.patchValue({
+          title: this.product.title,
+          price: this.product.price,
+          isNew: this.product.isNew,
+          releaseDate: this.product.releaseDate,
+          category: this.product.category,
+          details: {
+            color: this.product.details?.[0]?.color || '',
+            size: this.product.details?.[0]?.size || '',
+            description: this.product.details?.[1]?.description || '',
+          }
+        });
+      }
     });
   }
+  
+
   
 
   onSubmit(): void {
     if (this.editForm.valid) {
       const updatedProduct = { ...this.product, ...this.editForm.value };
-      // this.productService.updateProduct(updatedProduct).subscribe(() => {
-      //   console.log('Product updated successfully');
-      //   this.router.navigate(['/admin/products']);
-      // });
+      this.productService.updateProduct(updatedProduct).subscribe(() => {
+        alert('Product updated successfully');
+        this.router.navigate(['/admin/products']);
+      });
     }
   }
 }

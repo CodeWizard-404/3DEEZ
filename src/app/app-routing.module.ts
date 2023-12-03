@@ -40,7 +40,7 @@ const routes: Routes = [
   { path: 'admin/purchases', component: PurchasesComponent, canActivate: [AdminGuard] },
 
   { path: 'admin/products/add', component: AddProdComponent, canActivate: [AdminGuard] },
-  { path: 'admin/products/edit', component: EditProdComponent, canActivate: [AdminGuard] },
+  { path: 'admin/products/edit/:id', component: EditProdComponent, canActivate: [AdminGuard] },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/error' },
 ];
