@@ -5,7 +5,11 @@ export class Product {
   price!: number;
   isNew!: boolean;
   releaseDate!: string;
-  details: { color?: string; size?: string; description?: string }[];
+  details: {
+    color?: string;
+    size?: string;
+    description?: string;
+  }[];
   category!: string;
 
 

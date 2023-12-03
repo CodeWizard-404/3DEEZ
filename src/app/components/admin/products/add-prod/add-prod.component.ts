@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from 'express';
+import { Router } from '@angular/router';
+
 import { ProductService } from '../../../../services/product.service';
 import { Product } from '../../../../classes/product';
 
@@ -32,13 +33,13 @@ export class AddProdComponent {
       this.product.id = lastId + 1;
 
       this.productService.addProduct(this.product).subscribe(() => {
-        console.log('Product added successfully');
-       // this.router.navigate(['/admin/products']);
+        alert('Product added successfully');
+          this.router.navigate(['/admin']);
       });
     });
   }
 
-  onFileChange(event: any): void {
+  AddPhoto(event: any): void {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
