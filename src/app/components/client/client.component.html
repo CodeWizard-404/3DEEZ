@@ -1,0 +1,17 @@
+<div class="client-info">
+  <h2>Welcome, {{ user?.name }}!</h2>
+  <div *ngIf="user">
+    <p>Email: {{ user.email }}</p>
+    <p>Phone Number: {{ user.phone }}</p>
+  </div>
+
+  <h3>Purchased Items</h3>
+  <div *ngFor="let item of purchasedItems">
+    <div>{{ item.title }}</div>
+  </div>
+
+  <h3>Cart</h3>
+  <div *ngFor="let cartItem of cartItems">
+    <div>{{ cartItem.title }}</div>
+  </div>
+</div>

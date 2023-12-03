@@ -1,0 +1,46 @@
+<div class="container">
+  <h2>Edit Product</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" id="title" formControlName="title" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price:</label>
+      <input type="number" id="price" formControlName="price" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="isNew">Is New:</label>
+      <input type="checkbox" id="isNew" formControlName="isNew" class="form-check-input" />
+    </div>
+
+    <div class="form-group">
+      <label for="releaseDate">Release Date:</label>
+      <input type="date" id="releaseDate" formControlName="releaseDate" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category:</label>
+      <input type="text" id="category" formControlName="category" class="form-control" />
+    </div>
+
+    <div formGroupName="details" class="form-group">
+      <label for="color">Color:</label>
+      <input type="text" id="color" formControlName="color" class="form-control" />
+    </div>
+
+    <div formGroupName="details" class="form-group">
+      <label for="size">Size:</label>
+      <input type="text" id="size" formControlName="size" class="form-control" />
+    </div>
+
+    <div formGroupName="details" class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Product</button>
+  </form>
+</div>

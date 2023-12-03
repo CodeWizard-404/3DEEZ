@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Our Products</h2>
+    </div>
+  </div>
+
+<!-- Your product list rendering code here -->
+
+<form class="form-inline my-2 my-lg-0" (ngSubmit)="onSearch(searchTerm)">
+  <div class="input-group">
+    <input [(ngModel)]="searchTerm" class="form-control" type="search" placeholder="Search" aria-label="Search" />
+    <div class="input-group-append">
+      <button class="btn my-2 my-sm-0" type="submit">Search</button>
+    </div>
+  </div>
+</form>
+
+
+  <div class="row">
+    <div class="col-md-3" *ngFor="let product of products">
+      <div class="card">
+        <img [src]="product.photo" class="card-img-top" alt="{{ product.title }}">
+        <div class="card-body">
+          <h6 class="card-title">{{ product.title }}</h6>
+          <p class="card-text"><strong>Price:</strong> {{ product.price |pricing }}</p>
+          <button class="btn btn-primary btn-sm" (click)="viewProductDetails(product.id)">Check It</button>
+          <span *ngIf="product.isNew" class="badge badge-warning new">New</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

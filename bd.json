@@ -1,0 +1,308 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Squll",
+      "photo": "../../../../assets/images/Products/squll.webp",
+      "price": 85,
+      "isNew": true,
+      "releaseDate": "2023-01-15",
+      "details": [
+        {
+          "color": "White",
+          "size": "Large"
+        },
+        {
+          "description": "Skull desktop decoration"
+        }
+      ],
+      "category": "Desktop"
+    },
+    {
+      "id": 2,
+      "title": "Mountain Keycaps",
+      "photo": "../../../../assets/images/Products/moun_kc.webp",
+      "price": 12,
+      "isNew": false,
+      "releaseDate": "2023-12-12",
+      "details": [
+        {
+          "color": "Black & White",
+          "size": "Custom"
+        },
+        {
+          "description": "Transparent mountan keycpas"
+        }
+      ],
+      "category": "Keycaps"
+    },
+    {
+      "id": 3,
+      "title": "One Piece Figure",
+      "photo": "../../../../assets/images/Products/op.jpg",
+      "price": 120,
+      "isNew": true,
+      "releaseDate": "2023-12-10",
+      "details": [
+        {
+          "color": "MultiColored",
+          "size": "Large"
+        },
+        {
+          "description": "Desktop figuring decoration of luffy"
+        }
+      ],
+      "category": "Figure"
+    },
+    {
+      "id": 4,
+      "title": "Iso Keycaps",
+      "photo": "../../../../assets/images/Products/iso.jpg",
+      "price": 12,
+      "isNew": false,
+      "releaseDate": "2023-12-10",
+      "details": [
+        {
+          "color": "Purpil",
+          "size": "Custom"
+        },
+        {
+          "description": "Valorant ISO keycaps"
+        }
+      ],
+      "category": "Keycaps"
+    },
+    {
+      "id": 5,
+      "title": "Headset Holder",
+      "photo": "../../../../assets/images/Products/headset_holder.jpg",
+      "price": 70,
+      "isNew": false,
+      "releaseDate": "2023-10-10",
+      "details": [
+        {
+          "color": "Black",
+          "size": "Medium"
+        },
+        {
+          "description": "Headset holder for desktop"
+        }
+      ],
+      "category": "Desktop"
+    },
+    {
+      "id": 6,
+      "title": "Valo Karambit",
+      "photo": "../../../../assets/images/Products/valo_karambit.jpg",
+      "price": 35,
+      "isNew": true,
+      "releaseDate": "2023-1-10",
+      "details": [
+        {
+          "color": "MultiColored",
+          "size": "Medium"
+        },
+        {
+          "description": "Valorant gaming knife"
+        }
+      ],
+      "category": "Desktop"
+    },
+    {
+      "id": 7,
+      "title": "Valo Keycaps",
+      "photo": "../../../../assets/images/Products/valo1.jpg",
+      "price": 12,
+      "isNew": false,
+      "releaseDate": "2023-12-10",
+      "details": [
+        {
+          "color": "Black & White",
+          "size": "Custom"
+        },
+        {
+          "description": "Valorant gaming keycaps"
+        }
+      ],
+      "category": "Keycaps"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "admin1",
+      "password": "admin1",
+      "name": "Admin",
+      "lastName": "3DEEZ",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "email": "admin2",
+      "password": "admin2",
+      "name": "Admin",
+      "lastName": "3DEEZ",
+      "role": "admin"
+    },
+    {
+      "id": 3,
+      "email": "admin3",
+      "password": "admin3",
+      "name": "Admin",
+      "lastName": "3DEEZ",
+      "role": "admin"
+    },
+    {
+      "id": 4,
+      "email": "user1",
+      "password": "user1",
+      "name": "Sofien",
+      "lastName": "Laghouanem",
+      "phone": "20-500-900",
+      "address": "8 Av.France",
+      "city": "Rades",
+      "postalCode": "2040",
+      "role": "client",
+      "purchasedProducts": [
+        {
+          "productId": 1,
+          "quantity": 2,
+          "totalPrice": 170
+        },
+        {
+          "productId": 3,
+          "quantity": 1,
+          "totalPrice": 120
+        },
+        {
+          "productId": 5,
+          "quantity": 3,
+          "totalPrice": 210
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "email": "user2",
+      "password": "user2",
+      "name": "John",
+      "lastName": "Doe",
+      "phone": "20-555-1234",
+      "address": "123 Main St",
+      "city": "Cityville",
+      "postalCode": "12345",
+      "role": "client",
+      "purchasedProducts": [
+        {
+          "productId": 2,
+          "quantity": 4,
+          "totalPrice": 48
+        },
+        {
+          "productId": 4,
+          "quantity": 2,
+          "totalPrice": 24
+        },
+        {
+          "productId": 7,
+          "quantity": 1,
+          "totalPrice": 12
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "email": "user3",
+      "password": "user3",
+      "name": "Alice",
+      "lastName": "Smith",
+      "phone": "20-555-5678",
+      "address": "456 Oak St",
+      "city": "Townsville",
+      "postalCode": "67890",
+      "role": "client",
+      "purchasedProducts": [
+        {
+          "productId": 3,
+          "quantity": 1,
+          "totalPrice": 120
+        },
+        {
+          "productId": 5,
+          "quantity": 2,
+          "totalPrice": 140
+        },
+        {
+          "productId": 6,
+          "quantity": 3,
+          "totalPrice": 105
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "email": "user4",
+      "password": "user4",
+      "name": "Bob",
+      "lastName": "Johnson",
+      "phone": "20-555-9876",
+      "address": "789 Pine St",
+      "city": "Villageville",
+      "postalCode": "54321",
+      "role": "client",
+      "purchasedProducts": [
+        {
+          "productId": 1,
+          "quantity": 1,
+          "totalPrice": 85
+        },
+        {
+          "productId": 2,
+          "quantity": 2,
+          "totalPrice": 24
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "email": "user5",
+      "password": "user5",
+      "name": "Eva",
+      "lastName": "Brown",
+      "phone": "20-555-4321",
+      "address": "101 Cedar St",
+      "city": "Hamletville",
+      "postalCode": "13579",
+      "role": "client",
+      "purchasedProducts": [
+        {
+          "productId": 4,
+          "quantity": 3,
+          "totalPrice": 36
+        },
+        {
+          "productId": 7,
+          "quantity": 2,
+          "totalPrice": 24
+        }
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "productId": 1,
+      "userId": 2,
+      "text": "This 3D printer is amazing!",
+      "date": "2023-01-16"
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "name": "tester",
+      "email": "testing",
+      "message": "test message"
+    }
+  ]
+}

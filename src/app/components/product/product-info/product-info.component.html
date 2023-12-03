@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img [src]="product.photo" alt="{{ product.title }}" class="img-fluid">
+      </div>
+      <div class="col-md-6">
+        <h2>{{ product.title | uppercase}}</h2>
+        <p>{{ product.description }}</p>
+        <p ><strong>Price: </strong> <span class="badge badge-primary">{{ product.price | pricing}}</span></p>
+        <p><strong>New: </strong> {{ product.isNew ? 'Yes' : 'No' }}</p>
+        <hr>
+        <h4>Details</h4>
+        <ul>
+          <ng-container *ngFor="let detail of product.details">
+            <ng-container *ngIf="detail.color && detail.size">
+              <li> Color: {{ detail.color }} - Size: {{ detail.size }}</li>
+            </ng-container>
+            <ng-container *ngIf="detail.description">
+              <li>{{ detail.description }}</li>
+            </ng-container>
+          </ng-container>
+        </ul>
+        <hr>
+        <p class="more">Category: {{ product.category }}</p>
+        <p class="more"><strong>Release Date: </strong> {{ product.releaseDate | date: 'mediumDate'}}</p>
+        <hr>
+        <button class="btn btn-dark" (click)="addToCart()">Add to Cart</button>
+
+      </div>
+      <hr>
+    </div>
+  </div>
+  

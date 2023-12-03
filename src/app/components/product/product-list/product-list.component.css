@@ -1,0 +1,39 @@
+.container {
+    margin-top: 50px;
+  }
+  h2{
+    text-shadow: 2px 2px 8px gray;
+  }
+  .row{
+    margin-top: 50px;
+  }
+  
+  .card {
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 100px rgb(73, 73, 73);
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+  }
+  
+  .card-text {
+    color: #666;
+  }
+
+  .card-img-top{
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .new{
+    font-size:medium;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+  }
+  
+
+  
+
+  
