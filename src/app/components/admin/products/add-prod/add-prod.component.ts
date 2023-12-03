@@ -1,3 +1,5 @@
+// add-prod.component.ts
+
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,7 +9,7 @@ import { Product } from '../../../../classes/product';
 @Component({
   selector: 'app-add-prod',
   templateUrl: './add-prod.component.html',
-  styleUrl: './add-prod.component.css'
+  styleUrls: ['./add-prod.component.css']
 })
 export class AddProdComponent {
 
@@ -34,7 +36,7 @@ export class AddProdComponent {
 
       this.productService.addProduct(this.product).subscribe(() => {
         alert('Product added successfully');
-          this.router.navigate(['/admin']);
+        this.router.navigate(['/admin']);
       });
     });
   }

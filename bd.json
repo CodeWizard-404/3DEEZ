@@ -125,16 +125,6 @@
         }
       ],
       "category": "Keycaps"
-    },
-    {
-      "id": 8,
-      "title": "testprod",
-      "photo": "",
-      "price": 500,
-      "isNew": true,
-      "releaseDate": "2023-12-03",
-      "details": [],
-      "category": "testcatg"
     }
   ],
   "users": [

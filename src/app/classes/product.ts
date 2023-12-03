@@ -12,8 +12,10 @@ export class Product {
   }[];
   category!: string;
 
+  
 
   constructor() {
     this.details = [];
   }
 }
+

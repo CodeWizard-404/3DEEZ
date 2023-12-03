@@ -41,7 +41,6 @@ export class ProductsComponent {
     const confirmDelete = confirm(`Are you sure you want to delete ${product.title}?`);
     if (confirmDelete) {
       this.productService.deleteProduct(product.id).subscribe(() => {
-        // Reload products after deletion
         this.loadProducts();
       });
     }
