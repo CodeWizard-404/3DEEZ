@@ -48,8 +48,8 @@ export class EditProdComponent implements OnInit {
 
   loadProduct(): void {
     this.productService.getProductById(this.productId).subscribe(data => {
-      this.product = data ?? {}; // Use an empty object if data is undefined
-      this.editForm.patchValue(data);
+      // this.product = data ?? {}; // Use an empty object if data is undefined
+      // this.editForm.patchValue(data);
     });
   }
   
@@ -57,10 +57,10 @@ export class EditProdComponent implements OnInit {
   onSubmit(): void {
     if (this.editForm.valid) {
       const updatedProduct = { ...this.product, ...this.editForm.value };
-      this.productService.updateProduct(updatedProduct).subscribe(() => {
-        console.log('Product updated successfully');
-        this.router.navigate(['/admin/products']);
-      });
+      // this.productService.updateProduct(updatedProduct).subscribe(() => {
+      //   console.log('Product updated successfully');
+      //   this.router.navigate(['/admin/products']);
+      // });
     }
   }
 }
