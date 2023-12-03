@@ -33,9 +33,10 @@ export class ProductsComponent {
   }
   
 
-  editProduct(product: any): void {
-    this.router.navigate(['/admin/products/edit']);
-  }
+editProduct(product: Product): void {
+  this.router.navigate(['/admin/products/edit', product.id]);
+}
+
 
   deleteProduct(product: Product): void {
     const confirmDelete = confirm(`Are you sure you want to delete ${product.title}?`);

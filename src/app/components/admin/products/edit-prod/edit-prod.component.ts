@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from '../../../../classes/product';
 import { ProductService } from '../../../../services/product.service';
@@ -8,9 +7,9 @@ import { ProductService } from '../../../../services/product.service';
 @Component({
   selector: 'app-edit-prod',
   templateUrl: './edit-prod.component.html',
-  styleUrl: './edit-prod.component.css'
+  styleUrls: ['./edit-prod.component.css']
 })
-export class EditProdComponent  implements OnInit {
+export class EditProdComponent implements OnInit {
   productId!: number;
   product!: Product;
   editForm: FormGroup;
@@ -36,24 +35,32 @@ export class EditProdComponent  implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.productId = +this.route.snapshot.paramMap.get('id');
-    //this.loadProduct();
+    const idParam = this.route.snapshot.paramMap.get('id');
+  
+    if (idParam !== null && idParam !== undefined) {
+      this.productId = +idParam;
+      this.loadProduct();
+    } else {
+      alert("'id' parameter is not available.");
+    }
   }
+  
 
   loadProduct(): void {
     this.productService.getProductById(this.productId).subscribe(data => {
-      //this.product = data;
-      //this.editForm.patchValue(data);
+      this.product = data ?? {}; // Use an empty object if data is undefined
+      this.editForm.patchValue(data);
     });
   }
+  
 
   onSubmit(): void {
     if (this.editForm.valid) {
       const updatedProduct = { ...this.product, ...this.editForm.value };
-      // this.productService.updateProduct(updatedProduct).subscribe(() => {
-      //   console.log('Product updated successfully');
-      //   this.router.navigate(['/admin/products']);
-      // });
+      this.productService.updateProduct(updatedProduct).subscribe(() => {
+        console.log('Product updated successfully');
+        this.router.navigate(['/admin/products']);
+      });
     }
   }
 }
