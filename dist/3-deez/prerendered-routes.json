@@ -1,0 +1,15 @@
+{
+  "routes": [
+    "/admin",
+    "/admin/clients",
+    "/admin/messages",
+    "/admin/products",
+    "/admin/products/add",
+    "/admin/purchases",
+    "/auth",
+    "/client",
+    "/error",
+    "/home",
+    "/products"
+  ]
+}
