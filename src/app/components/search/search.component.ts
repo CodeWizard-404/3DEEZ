@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component } from '@angular/core';
 import { SearchService } from '../../services/search.service';
 
 @Component({
@@ -7,20 +6,16 @@ import { SearchService } from '../../services/search.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
 })
-export class SearchComponent implements OnInit {
-  searchForm!: FormGroup;
+export class SearchComponent {
+  searchTerm: string = '';
 
-  constructor(private fb: FormBuilder, private searchService: SearchService) {}
+  constructor(private searchService: SearchService) {}
 
-  ngOnInit(): void {
-    this.searchForm = this.fb.group({
-      searchTerm: [''],
-    });
+  onSearch(): void {
+    this.searchService.setSearchTerm(this.searchTerm);
   }
 
-  search(): void {
-    const searchTerm = this.searchForm.get('searchTerm')?.value;
-    console.log('Search Term:', searchTerm);
-    this.searchService.setSearchTerm(searchTerm);
+  onInputChange(): void {
+    this.searchService.setSearchTerm(this.searchTerm);
   }
 }

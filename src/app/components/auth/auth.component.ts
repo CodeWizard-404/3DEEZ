@@ -59,6 +59,7 @@ export class AuthComponent implements OnInit {
       });
     }
   }
+  
 
   private navigateToRole(role: string): void {
     if (role === 'admin') {

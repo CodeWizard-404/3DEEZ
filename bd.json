@@ -106,7 +106,7 @@
           "description": "Valorant gaming knife"
         }
       ],
-      "category": "Desktop"
+      "category": "Knife"
     },
     {
       "id": 7,
@@ -122,6 +122,78 @@
         },
         {
           "description": "Valorant gaming keycaps"
+        }
+      ],
+      "category": "Keycaps"
+    },
+    {
+      "id": 8,
+      "title": "Pen Holder",
+      "photo": "../../../../assets/images/Products/pen_holder.png",
+      "price": 7,
+      "isNew": false,
+      "releaseDate": "2023-12-10",
+      "details": [
+        {
+          "color": "Gray",
+          "size": "Custom"
+        },
+        {
+          "description": "Desktop decoration for holding pens"
+        }
+      ],
+      "category": "Desktop"
+    },
+    {
+      "id": 9,
+      "title": "RGX",
+      "photo": "../../../../assets/images/Products/RGX.jpg",
+      "price": 50,
+      "isNew": true,
+      "releaseDate": "2023-12-10",
+      "details": [
+        {
+          "color": "MultiColored",
+          "size": "Custom"
+        },
+        {
+          "description": "Valorent RGX knife"
+        }
+      ],
+      "category": "Knife"
+    },
+    {
+      "id": 10,
+      "title": "Controller Holder",
+      "photo": "../../../../assets/images/Products/controller_holder.jpg",
+      "price": 75,
+      "isNew": true,
+      "releaseDate": "2023-12-10",
+      "details": [
+        {
+          "color": "Black & White",
+          "size": "Custom"
+        },
+        {
+          "description": "Holder for consol controller"
+        }
+      ],
+      "category": "Gaming"
+    },
+    {
+      "id": 11,
+      "title": "Luffy Keycap",
+      "photo": "../../../../assets/images/Products/luffy_keycap.jpg",
+      "price": 7,
+      "isNew": true,
+      "releaseDate": "2023-12-10",
+      "details": [
+        {
+          "color": "Goldene",
+          "size": "Custom"
+        },
+        {
+          "description": "Luffy s hat as a keycap "
         }
       ],
       "category": "Keycaps"

@@ -11,6 +11,4 @@ export class SearchService {
   setSearchTerm(searchTerm: string): void {
     this.searchTermSubject.next(searchTerm);
   }
-
-  
 }
