@@ -1,0 +1,32 @@
+<div class="container mt-3">
+    <h2>Client Information</h2>
+    <div *ngIf="client">
+      <p><strong>ID:</strong> {{ client.id }}</p>
+      <p><strong>Email:</strong> {{ client.email }}</p>
+      <p><strong>Name:</strong> {{ client.name }}</p>
+      <p><strong>Last Name:</strong> {{ client.lastName }}</p>
+      <p><strong>Phone:</strong> {{ client.phone }}</p>
+      <p><strong>Address:</strong> {{ client.address }}</p>
+      <p><strong>City:</strong> {{ client.city }}</p>
+      <p><strong>Postal Code:</strong> {{ client.postalCode }}</p>
+  
+      <h3>Purchased Products</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Product ID</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let purchase of client.purchasedProducts">
+            <td>{{ purchase.productId }}</td>
+            <td>{{ purchase.quantity }}</td>
+            <td>{{ purchase.totalPrice | pricing }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

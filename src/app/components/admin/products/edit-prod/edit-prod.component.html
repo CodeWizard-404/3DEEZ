@@ -28,18 +28,20 @@
 
     <div formGroupName="details" class="form-group">
       <label for="color">Color:</label>
-      <input type="text" id="color" formControlName="color" class="form-control" />
+      <input type="text" id="color" formControlName="color" class="form-control" readonly />
     </div>
-
+    
     <div formGroupName="details" class="form-group">
       <label for="size">Size:</label>
-      <input type="text" id="size" formControlName="size" class="form-control" />
+      <input type="text" id="size" formControlName="size" class="form-control" readonly />
     </div>
-
+    
     <div formGroupName="details" class="form-group">
       <label for="description">Description:</label>
-      <textarea id="description" formControlName="description" class="form-control"></textarea>
+      <textarea id="description" formControlName="description" class="form-control" readonly></textarea>
     </div>
+    
+
 
     <button type="submit" class="btn btn-primary">Update Product</button>
   </form>

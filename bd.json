@@ -10,13 +10,13 @@
       "details": [
         {
           "color": "White",
-        "size": "Large"
+          "size": "Large"
         },
         {
           "description": "Skull desktop decoration"
         }
       ],
-      "category": "Desktop"
+      "category": "Desktopp"
     },
     {
       "id": 2,
@@ -187,7 +187,7 @@
       "password": "user2",
       "name": "John",
       "lastName": "Doe",
-      "phone": "20-555-1234",
+      "phone": "20-555-123",
       "address": "123 Main St",
       "city": "Cityville",
       "postalCode": "12345",
@@ -216,7 +216,7 @@
       "password": "user3",
       "name": "Alice",
       "lastName": "Smith",
-      "phone": "20-555-5678",
+      "phone": "20-555-567",
       "address": "456 Oak St",
       "city": "Townsville",
       "postalCode": "67890",
@@ -245,7 +245,7 @@
       "password": "user4",
       "name": "Bob",
       "lastName": "Johnson",
-      "phone": "20-555-9876",
+      "phone": "20-555-987",
       "address": "789 Pine St",
       "city": "Villageville",
       "postalCode": "54321",
@@ -269,7 +269,7 @@
       "password": "user5",
       "name": "Eva",
       "lastName": "Brown",
-      "phone": "20-555-4321",
+      "phone": "20-555-432",
       "address": "101 Cedar St",
       "city": "Hamletville",
       "postalCode": "13579",
@@ -300,7 +300,19 @@
   "messages": [
     {
       "id": 1,
-      "name": "tester",
+      "name": "tester1",
+      "email": "testing",
+      "message": "test message"
+    },
+    {
+      "id": 2,
+      "name": "tester2",
+      "email": "testing",
+      "message": "test message"
+    },
+    {
+      "id": 3,
+      "name": "tester3",
       "email": "testing",
       "message": "test message"
     }

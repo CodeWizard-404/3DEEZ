@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router,RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from '../../../../classes/product';
 import { ProductService } from '../../../../services/product.service';
@@ -28,11 +28,11 @@ export class EditProdComponent implements OnInit {
       isNew: [false],
       releaseDate: ['', Validators.required],
       category: ['', Validators.required],
-      details: this.fb.group({
-        color: [''],
-        size: [''],
-        description: ['']
-      }),
+      // details: this.fb.group({
+      //   color: [''],
+      //   size: [''],
+      //   description: ['']
+      // }),
     });
   }
 
@@ -48,25 +48,26 @@ export class EditProdComponent implements OnInit {
   }
   
 
-  loadProduct(): void {
-    this.productService.getProductById(this.productId).subscribe(data => {
-      if (data) {
-        this.product = data as Product;
-        this.editForm.patchValue({
-          title: this.product.title,
-          price: this.product.price,
-          isNew: this.product.isNew,
-          releaseDate: this.product.releaseDate,
-          category: this.product.category,
-          details: {
-            color: this.product.details?.[0]?.color || '',
-            size: this.product.details?.[0]?.size || '',
-            description: this.product.details?.[1]?.description || '',
-          }
-        });
-      }
-    });
-  }
+loadProduct(): void {
+  this.productService.getProductById(this.productId).subscribe(data => {
+    if (data) {
+      this.product = data as Product;
+      this.editForm.patchValue({
+        title: this.product.title,
+        price: this.product.price,
+        isNew: this.product.isNew,
+        releaseDate: this.product.releaseDate,
+        category: this.product.category,
+        // details: {
+        //   color: this.product.details?.[0]?.color || '',
+        //   size: this.product.details?.[0]?.size || '',
+        //   description: this.product.details?.[1]?.description || '',
+        // }
+      });
+    }
+  });
+}
+
   
 
   
