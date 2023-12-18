@@ -16,7 +16,7 @@
           "description": "Skull desktop decoration"
         }
       ],
-      "category": "Desktop"
+      "category": "Desktopp"
     },
     {
       "id": 2,
@@ -73,6 +73,24 @@
       "category": "Keycaps"
     },
     {
+      "id": 5,
+      "title": "Headset Holder",
+      "photo": "../../../../assets/images/Products/headset_holder.jpg",
+      "price": 70,
+      "isNew": false,
+      "releaseDate": "2023-10-10",
+      "details": [
+        {
+          "color": "Black",
+          "size": "Medium"
+        },
+        {
+          "description": "Headset holder for desktop"
+        }
+      ],
+      "category": "Desktop"
+    },
+    {
       "id": 6,
       "title": "Valo Karambit",
       "photo": "../../../../assets/images/Products/valo_karambit.jpg",
@@ -88,7 +106,7 @@
           "description": "Valorant gaming knife"
         }
       ],
-      "category": "Desktop"
+      "category": "Knife"
     },
     {
       "id": 7,
@@ -107,13 +125,85 @@
         }
       ],
       "category": "Keycaps"
+    },
+    {
+      "id": 8,
+      "title": "Pen Holder",
+      "photo": "../../../../assets/images/Products/pen_holder.png",
+      "price": 7,
+      "isNew": false,
+      "releaseDate": "2023-12-10",
+      "details": [
+        {
+          "color": "Gray",
+          "size": "Custom"
+        },
+        {
+          "description": "Desktop decoration for holding pens"
+        }
+      ],
+      "category": "Desktop"
+    },
+    {
+      "id": 9,
+      "title": "RGX",
+      "photo": "../../../../assets/images/Products/RGX.jpg",
+      "price": 50,
+      "isNew": true,
+      "releaseDate": "2023-12-10",
+      "details": [
+        {
+          "color": "MultiColored",
+          "size": "Custom"
+        },
+        {
+          "description": "Valorent RGX knife"
+        }
+      ],
+      "category": "Knife"
+    },
+    {
+      "id": 10,
+      "title": "Controller Holder",
+      "photo": "../../../../assets/images/Products/controller_holder.jpg",
+      "price": 75,
+      "isNew": true,
+      "releaseDate": "2023-12-10",
+      "details": [
+        {
+          "color": "Black & White",
+          "size": "Custom"
+        },
+        {
+          "description": "Holder for consol controller"
+        }
+      ],
+      "category": "Gaming"
+    },
+    {
+      "id": 11,
+      "title": "Luffy Keycap",
+      "photo": "../../../../assets/images/Products/luffy_keycap.jpg",
+      "price": 7,
+      "isNew": true,
+      "releaseDate": "2023-12-10",
+      "details": [
+        {
+          "color": "Goldene",
+          "size": "Custom"
+        },
+        {
+          "description": "Luffy s hat as a keycap "
+        }
+      ],
+      "category": "Keycaps"
     }
   ],
   "users": [
     {
       "id": 1,
       "email": "admin1",
-      "password": "admin123456",
+      "password": "admin1",
       "name": "Admin",
       "lastName": "3DEEZ",
       "role": "admin"
@@ -169,7 +259,7 @@
       "password": "user2",
       "name": "John",
       "lastName": "Doe",
-      "phone": "20-555-1234",
+      "phone": "20-555-123",
       "address": "123 Main St",
       "city": "Cityville",
       "postalCode": "12345",
@@ -198,7 +288,7 @@
       "password": "user3",
       "name": "Alice",
       "lastName": "Smith",
-      "phone": "20-555-5678",
+      "phone": "20-555-567",
       "address": "456 Oak St",
       "city": "Townsville",
       "postalCode": "67890",
@@ -227,7 +317,7 @@
       "password": "user4",
       "name": "Bob",
       "lastName": "Johnson",
-      "phone": "20-555-9876",
+      "phone": "20-555-987",
       "address": "789 Pine St",
       "city": "Villageville",
       "postalCode": "54321",
@@ -251,7 +341,7 @@
       "password": "user5",
       "name": "Eva",
       "lastName": "Brown",
-      "phone": "20-555-4321",
+      "phone": "20-555-432",
       "address": "101 Cedar St",
       "city": "Hamletville",
       "postalCode": "13579",
@@ -282,15 +372,21 @@
   "messages": [
     {
       "id": 1,
-      "name": "tester",
+      "name": "tester1",
       "email": "testing",
       "message": "test message"
     },
     {
-      "name": "test123",
-      "email": "sofienlaghouanem@outlook.com",
-      "message": "test description",
-      "id": 2
+      "id": 2,
+      "name": "tester2",
+      "email": "testing",
+      "message": "test message"
+    },
+    {
+      "id": 3,
+      "name": "tester3",
+      "email": "testing",
+      "message": "test message"
     }
   ]
 }

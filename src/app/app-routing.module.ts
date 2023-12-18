@@ -10,6 +10,7 @@ import { ProductInfoComponent } from './components/product/product-info/product-
 import { ErrorComponent } from './components/error/error.component';
 
 import { ClientsComponent } from './components/admin/clients/clients.component';
+import { ClientInfoComponent } from './components/admin/clients/client-info/client-info.component';
 import { MessagesComponent } from './components/admin/messages/messages.component';
 import { ProductsComponent } from './components/admin/products/products.component';
 import { PurchasesComponent } from './components/admin/purchases/purchases.component';
@@ -35,48 +36,20 @@ const routes: Routes = [
   },
   { path: 'error', component: ErrorComponent },
   { path: 'admin/clients', component: ClientsComponent, canActivate: [AdminGuard] },
+  { path: 'admin/client/:id', component: ClientInfoComponent, canActivate: [AdminGuard] },
   { path: 'admin/messages', component: MessagesComponent, canActivate: [AdminGuard] },
   { path: 'admin/products', component: ProductsComponent, canActivate: [AdminGuard] },
   { path: 'admin/purchases', component: PurchasesComponent, canActivate: [AdminGuard] },
 
   { path: 'admin/products/add', component: AddProdComponent, canActivate: [AdminGuard] },
-  { path: 'admin/products/edit', component: EditProdComponent, canActivate: [AdminGuard] },
+  { path: 'admin/products/edit/:id', component: EditProdComponent, canActivate: [AdminGuard] },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/error' },
 ];
 
 
 
-// const routes: Routes = [
-//   { path: 'home', component: HomeComponent },
-//   {
-//     path: 'admin',
-//     component: AdminComponent,
-//     canActivate: [AdminGuard],
-//     children: [
-//       { path: 'clients', component: ClientsComponent },
-//       { path: 'messages', component: MessagesComponent },
-//       { path: 'products', component: ProductsComponent },
-//       { path: 'purchases', component: PurchasesComponent },
-//       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, 
-//     ],
-//   },
 
-//   { path: 'client', component: ClientComponent, canActivate: [ClientGuard] },
-//   { path: 'auth', component: AuthComponent },
-
-//   {
-//     path: 'products',
-//     children: [
-//       { path: '', component: ProductListComponent },
-//       { path: ':id', component: ProductInfoComponent },
-//     ],
-//   },
-
-//   { path: 'error', component: ErrorComponent },
-//   { path: '', redirectTo: '/home', pathMatch: 'full' },
-//   { path: '**', redirectTo: '/error' },
-// ];
 
 
 @NgModule({

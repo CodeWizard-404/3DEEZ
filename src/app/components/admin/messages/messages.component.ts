@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../../../services/contact.service';
-import { Comment } from '../../../classes/comments'; // Corrected import
+import { Comment } from '../../../classes/comments';
 import { ContactInfo } from '../../../classes/contact-info';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-messages',
@@ -9,14 +10,11 @@ import { ContactInfo } from '../../../classes/contact-info';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
-deleteComment(_t16: Comment) {
-throw new Error('Method not implemented.');
-}
-  comments: Comment[] = []; // Corrected type
-  messages: ContactInfo[] = []; // Corrected type
+  comments: Comment[] = [];
+  messages: ContactInfo[] = [];
   contactMessages: (Comment | ContactInfo)[] = [];
 
-  constructor(private dataService: ContactService) {}
+  constructor(private dataService: ContactService ,private userService: UserService) {}
 
   ngOnInit(): void {
     this.loadContactMessages();
@@ -34,13 +32,26 @@ throw new Error('Method not implemented.');
     });
   }
 
-  // Replace this with your actual logic to get user by ID
-  getUserById(userId: number): any {
-    // Sample implementation, replace with actual logic
-    return { id: userId, name: 'Sample User', email: 'sample@email.com' };
+  deleteComment(comment: Comment): void {
+    const confirmDelete = confirm(`Are you sure you want to delete this comment ${comment.id}?`);
+    if (confirmDelete) {
+      this.dataService.deleteComment(comment.id).subscribe(() => {
+        this.loadContactMessages();
+      });
+    }
   }
 
-  deleteMessage(message: Comment | ContactInfo): void {
-    // Add logic to delete the message
+  deleteMessage(message: ContactInfo): void {
+    const confirmDelete = confirm(`Are you sure you want to delete this message from ${message.name}?`);
+    if (confirmDelete) {
+      this.dataService.deleteMessage(message.id).subscribe(() => {
+        this.loadContactMessages();
+      });
+    }
   }
+
+  getUserById(userId: number): any {
+    return this.userService.getUserById(userId);
+  }
+
 }
