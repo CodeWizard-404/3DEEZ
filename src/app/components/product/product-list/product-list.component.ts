@@ -13,7 +13,6 @@ export class ProductListComponent implements OnInit {
   products: Product[] = [];
   searchTerm: string = '';
 
-
   constructor(
     private productService: ProductService,
     private router: Router,
@@ -26,46 +25,30 @@ export class ProductListComponent implements OnInit {
       this.searchTerm = term;
       this.loadProducts(term);
     });
-  
+
+    this.loadAllProducts();
+  }
+
+  private loadAllProducts(): void {
     this.productService.getAllProducts().subscribe((products) => {
       this.products = products;
     });
   }
-  
+
   private loadProducts(searchTerm: string): void {
     console.log('Load Products with Search Term:', searchTerm);
-  
+
     if (searchTerm.trim() === '') {
-      this.productService.getAllProducts().subscribe((products) => {
-        this.products = products;
-      });
+      this.loadAllProducts();
     } else {
-      this.productService.getProductsBySearchTerm(searchTerm).subscribe((products) => {
-        this.products = products;
-      });
-    }
-  }
-  
-
-  viewProductDetails(productId: number): void {
-    this.router.navigate(['/products', productId]);
-  }
-
-  onSearch(searchTerm: string): void {
-    console.log('Search Term:', searchTerm);
-  
-    if (searchTerm.trim() !== '') {
       this.productService.getProductsBySearchTerm(searchTerm).subscribe((filteredProducts) => {
         console.log('Filtered Products:', filteredProducts);
         this.products = filteredProducts;
       });
-    } else {
-      this.productService.getAllProducts().subscribe((products) => {
-        this.products = products;
-      });
     }
   }
-  
 
-  
+  viewProductDetails(productId: number): void {
+    this.router.navigate(['/products', productId]);
+  }
 }

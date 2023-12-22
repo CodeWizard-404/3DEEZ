@@ -15,9 +15,12 @@ export class AuthService {
   currentUser$: Observable<User | null> = this.currentUserSubject.asObservable();
 
   private userlogsUrl = 'http://localhost:3000/users';
+  private userRoles: string[] = []; 
 
   constructor(private http: HttpClient,private userService: UserService,private snackBar: MatSnackBar,private router: Router,
-    ) {}
+    ) {
+      this.userRoles = ['admin'];
+    }
 
   login(email: string, password: string): Observable<boolean> {
     return this.http.get<User[]>(this.userlogsUrl).pipe(
@@ -94,6 +97,8 @@ export class AuthService {
   isAdmin(): boolean {
     return this.currentUserSubject.value?.role === 'admin' || false;
   }
+
+
 
   isAuthenticated(): boolean {
     return !!this.getCurrentUser();

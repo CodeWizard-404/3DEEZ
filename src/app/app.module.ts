@@ -37,6 +37,7 @@ import { EditProdComponent } from './components/admin/products/edit-prod/edit-pr
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SearchComponent } from './components/search/search.component';
+import { ClientInfoComponent } from './components/admin/clients/client-info/client-info.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { SearchComponent } from './components/search/search.component';
     AddProdComponent,
     EditProdComponent,
     SearchComponent,
+    ClientInfoComponent,
     
   ],
   imports: [

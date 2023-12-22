@@ -7,10 +7,6 @@ import { Product } from '../classes/product';
   providedIn: 'root',
 })
 export class ProductService {
-  updateProduct(updatedProduct: any) {
-    throw new Error('Method not implemented.');
-  }
-
   private productsUrl = 'http://localhost:3000/products'; 
   constructor(private http: HttpClient) {}
 
@@ -54,13 +50,18 @@ export class ProductService {
     return this.http.delete<void>(url);
   }
 
+
+  updateProduct(product: Product): Observable<any> {
+    const url = `${this.productsUrl}/${product.id}`;
+    return this.http.patch(url, product);
+  }
+
+
   getPurchasedItems(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.productsUrl}/purchased-items`);
   }
 
-  getCartItems(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.productsUrl}/cart-items`);
-  }
+
   getClientProducts() {
     throw new Error('Method not implemented.');
   }
@@ -70,7 +71,9 @@ export class ProductService {
 
 
   private cart: Product[] = []; 
-
+  getCartItems(): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.productsUrl}/cart-items`);
+  }
   addToCart(product: Product): void {
     this.cart.push(product);
   }

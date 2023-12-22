@@ -7,6 +7,7 @@ import { User } from '../classes/user';
   providedIn: 'root',
 })
 export class UserService {
+
   private usersUrl = 'http://localhost:3000/users';
 
   constructor(private http: HttpClient) {}
@@ -29,5 +30,9 @@ export class UserService {
 
   updateUser(user: User): Observable<void> {
     return this.http.put<void>(`${this.usersUrl}/${user.id}`, user);
+  }
+
+  deleteUser(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.usersUrl}/${id}`);
   }
 }
