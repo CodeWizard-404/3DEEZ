@@ -113,7 +113,7 @@
     {
       "id": 1,
       "email": "admin1",
-      "password": "admin123456",
+      "password": "admin1",
       "name": "Admin",
       "lastName": "3DEEZ",
       "role": "admin"
