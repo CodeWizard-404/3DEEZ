@@ -1,171 +1,116 @@
+
 # 3DEEZ Online Store Web Application
 
-Welcome to the 3DEEZ Online Store web application repository! This project is designed to showcase a web application for an online store specializing in 3D printed items. The application consists of two parts: Back Office for administrators and Front Office for customers and visitors.
+Welcome to the **3DEEZ Online Store** web application repository! This project showcases an innovative e-commerce platform for **3D-printed items**, featuring a Back Office for administrators and a Front Office for customers and visitors.
 
-## Features
+---
 
-### Back Office (Administrator's Dashboard)
+## 🌟 Features
 
-1. **Product Management:**
-   - CRUD operations for managing products.
-   - Search functionality for products.
-   - Product details include a unique numeric identifier, title, photo, numeric field, boolean field, date field, and an array of objects field.
+### **Back Office (Administrator's Dashboard)**
+- **Product Management**: CRUD operations, search, and detailed product views.
+- **User Authentication**: Secure login system with password management.
+- **Extendable Functionalities**: Add custom features for better management.
 
-2. **User Authentication:**
-   - Secure authentication system for administrators.
-   - Password change option for added security.
+### **Front Office (Customer Interface)**
+- **Dynamic Product Display**: Showcase and search for products with details.
+- **Promotional Section**: Fetch promotional info via external APIs.
+- **Interactive Static Pages**: Engaging Home and About sections.
+- **Store Page**: Seamlessly browse and explore items.
 
-3. **Additional Functionality:**
-   - Implement your chosen additional functionality to enhance the Back Office experience.
+---
 
-### Front Office (Customer Interface)
+## 🌐 Screenshots
 
-1. **Product Display:**
-   - View all products with limited fields (e.g., title, photo, category).
-   - Detailed product view for in-depth information.
+### **1. Home Page**
+![Home Page](readmeFiles/Home_Page1.png)
 
-2. **Product Search:**
-   - Search for products based on criteria.
+### **2. About Us Section**
+![About Us Section](readmeFiles/Home_Page2.png)
 
-3. **Promotional Information:**
-   - Access promotional information from a chosen free API.
+### **3. Store Page**
+![Store Page](readmeFiles/Store_Page.png)
 
-4. **Static Home Page:**
-   - Access a static Home page with information about the site.
+---
 
-5. **Additional Functionality:**
-   - Implement your chosen additional functionality to enhance the Front Office experience.
+## 🛠️ Functional Requirements
 
-## Functional Requirements
+### **Back Office**
+- CRUD operations and product search.
+- Administrator login with secure authentication.
+- Additional functionality for custom business needs.
 
-### Back Office Management
+### **Front Office**
+- Product display and search with promotional integration.
+- Static pages for Home and About.
+- Detailed product views with intuitive navigation.
 
-- **CRUD Operations:** Implement CRUD operations for managing products.
-- **Product Search:** Enable search functionality for products.
-- **User Authentication:** Secure authentication system for administrators.
-- **Password Change:** Implement a password change option for administrators.
-- **Additional Functionality:** Implement an additional chosen functionality.
+---
 
-### Front Office Management
+## 💻 Technical Stack and Requirements
 
-- **Product Display:** Showcase products with limited fields.
-- **Detailed Product View:** Provide detailed information about a selected product.
-- **Product Search:** Enable product search based on criteria.
-- **Promotional Information:** Access promotional information from a chosen API.
-- **Static Home Page:** Design a static Home page with site information.
-- **Additional Functionality:** Implement an additional chosen functionality.
+1. **Frameworks**: Angular for the front end, JSON Server for mock backend.
+2. **Design**: Built with Bootstrap and Angular Material.
+3. **Routing**: Includes child routes, route guards, and lazy-loading for performance.
+4. **Forms**: Reactive forms for robust input handling.
+5. **Pipes & Directives**: Custom pipes and dynamic styling via `ngClass`.
+6. **Deployment**: Surge.sh, Firebase, or similar platforms for hosting.
 
-## Technical Requirements
+---
 
-1. **TypeScript Classes:**
-   - Define TypeScript classes for products and other necessary entities.
+## 🚀 Getting Started
 
-2. **Business Logic Services:**
-   - Implement one or more services for business logic.
+### **Clone the Repository**
+```bash
+git clone <repository-url>
+```
 
-3. **Component Structure:**
-   - Organize product lists in a parent component with each product represented in a child component.
+### **Install Dependencies**
+```bash
+cd 3deez
+npm install
+```
 
-4. **Pipes:**
-   - Use one or more pipes, including at least one custom pipe.
+### **Run the Application**
+```bash
+ng serve
+```
+Open your browser and navigate to `http://localhost:4200/` to view the application.
 
-5. **ngClass Directive:**
-   - Implement the ngClass directive for dynamic styling.
+---
 
-6. **Client Navigation Menus:**
-   - Design navigation menus for both front and back offices.
+## 📚 JSON Server Setup
 
-7. **Routing:**
-   - Implement different routes for product display and details in the front office.
-   - Use child routes for improved organization.
-
-8. **Route Guards:**
-   - Implement guards for route security.
-
-9. **Reactive Forms:**
-   - Use reactive forms for improved form handling.
-
-10. **Styling Frameworks:**
-    - Utilize or combine styling frameworks such as Bootstrap, Angular Material, or Materialize CSS.
-
-11. **JSON Server:**
-    - Access a JSON server with data stored in one or more JSON files.
-
-12. **Deployment:**
-    - Deploy the application on Surge.sh or an equivalent platform.
-
-## Bonus Features
-
-The application may receive additional points for:
-
-- **Firebase Integration and Deployment:**
-  - Integrate with Firebase and deploy the application.
-
-- **Backend Integration:**
-  - Integrate with a chosen backend (Node.js, Spring Boot, etc.).
-
-- **Advanced Angular Concepts:**
-  - Use advanced Angular concepts such as modules and lazy-loading.
-
-- **Angular Material:**
-  - Use Angular Material as a styling framework.
-
-Feel free to explore and enhance the application further to meet these bonus criteria.
-
-## Getting Started
-
-To get started with the 3DEEZ Online Store web application, follow the steps below:
-
-1. **Clone the Repository:**
-   ```bash
-   git clone <repository-url>
-   ```
-
-2. **Install Dependencies:**
-   ```bash
-   cd 3deez
-   npm install
-   ```
-
-3. **Run the Application:**
-   ```bash
-   ng serve
-   ```
-
-   Open your browser and navigate to `http://localhost:4200/` to view the application.
-
-4. **Explore and Customize:**
-   - Explore the codebase and customize the application to meet your specific requirements.
-   - Implement additional features and functionalities as needed.
-
-**JSON Server Setup:**
-
-To simulate a backend, the application uses JSON Server. Here's how to start it:
-
-1. **Install JSON Server:**
+Simulate a backend with JSON Server:
+1. **Install JSON Server**:
    ```bash
    npm install -g json-server
    ```
-
-2. **Create a JSON Data File:**
-   Create a `bd.json` file in the project root with sample data.
-
-3. **Start JSON Server:**
+2. **Create a JSON Data File**:
+   Add a `db.json` file in the root directory with your data.
+3. **Start JSON Server**:
    ```bash
-   json-server --watch bd.json
+   json-server --watch db.json
    ```
 
-   Access the JSON Server API at `http://localhost:3000/`.
+Access the API at `http://localhost:3000/`.
 
-## Contributors
+---
 
-- [Laghouanem Sofien]
+## 🎉 Bonus Features
 
+- **Firebase Integration** for hosting and database.
+- **Advanced Angular Concepts** such as lazy-loading and modules.
+- **Backend Integration** with Node.js or Spring Boot.
 
-## License
+---
+
+## 👥 Contributors
+
+- [Laghouanem Sofien](https://github.com/CodeWizard-404)
+
+---
+
+## 📜 License
 
 This project is licensed under the [ISET](LICENSE).
-
-
-
-Happy coding! 🚀
